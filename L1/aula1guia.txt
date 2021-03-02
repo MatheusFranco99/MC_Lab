@@ -1,0 +1,534 @@
+%%%%%%%%%%%%%%%%%%%%%   Representação de números reais e complexos, formato normal e longo
+
+pi
+
+ans =
+
+    3.1416, 
+
+format long
+pi
+
+ans =
+
+   3.141592653589793
+
+help complex
+    <strong>complex</strong> Create complex array.
+    C = <strong>complex</strong>(A,B)
+
+ returns the complex result A + Bi, where A and B are
+    identically sized real N-D arrays, matrices, or scalars of the same data type.
+    Note: In the event that B is all zeros, C is complex with all zero imaginary
+    part, unlike the result of the addition A+0i, which returns a 
+    strictly real result.
+ 
+    C = <strong>complex</strong>(A) for real A returns the complex result C with real part A
+    and all zero imaginary part. Even though its imaginary part is all zero,
+    C is complex and so isreal(C) returns false. If A is complex, C is identical
+    to A.
+ 
+    The complex function provides a useful substitute for expressions such as
+    A+1i*B or A+1j*B in cases when A and B are not single or double, or when
+    B is all zero.
+ 
+    See also  <a href="matlab:help i">i</a>, <a href="matlab:help j">j</a>, <a href="matlab:help imag">imag</a>, <a href="matlab:help conj">conj</a>, <a href="matlab:help angle">angle</a>, <a href="matlab:help abs">abs</a>, <a href="matlab:help real">real</a>, <a href="matlab:help isreal">isreal</a>.
+
+    <a href="matlab:doc complex">Reference page for complex</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('complex')">Other functions named complex</a>
+
+help i
+ <strong>i</strong>  Imaginary unit.
+    As the basic imaginary unit SQRT(-1), i and j are used to enter
+    complex numbers.  For example, the expressions 3+2i, 3+2*i, 3+2j,
+    3+2*j and 3+2*sqrt(-1) all have the same value.
+ 
+    Since both i and j are functions, they can be overridden and used
+    as a variable.  This permits you to use i or j as an index in FOR
+    loops, etc.
+ 
+    See also <a href="matlab:help j">j</a>.
+
+    <a href="matlab:doc i">Reference page for i</a>
+
+i^2
+
+ans =
+
+    -1
+
+complex(0,1)
+
+ans =
+
+  0.000000000000000 + 1.000000000000000i
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Utilização de funções de variável real em Matlab
+%%% sen(x)
+sin(pi)
+
+ans =
+
+     1.224646799147353e-16
+
+%%%%%%% exp(x)
+exp(1)
+
+ans =
+
+   2.71828182845904
+%%%%%%%%%%%%%%%%%%%%%%%%%   raiz quadrada de x
+
+sqrt(4.)
+
+ans =
+
+     2
+%%%%%%%%%%%%%%%%%%  logaritmo natural
+log(3)
+
+ans =
+
+   1.098612288668110
+
+%%%%%%%%%%% arco de seno
+
+asin(1)
+
+ans =
+
+   1.570796326794897
+
+%%%%%%%%%%%%%%%  arco de tangente
+
+atan(1)
+
+ans =
+
+   0.785398163397448
+
+%%%%%%%%%%%%%%%%%%%%  ATRIBUIÇÃO DE VALORES A VARIÁVEIS
+x=10
+
+x =
+
+    10
+
+y=2
+
+y =
+
+     2
+
+x^y
+
+ans =
+
+   100
+
+x*y
+
+ans =
+
+    20
+
+x^2 + y^2
+
+ans =
+
+   104
+
+%%%%%%%%%%%%%%%%%%%%   VECTORES E MATRIZES
+%%%%%%%%%%%%%%%%%%%%  COMO DEFINIR UM VECTOR OU UMA MATRIZ?
+%%%%%%%%%%%% Alguns comandos úteis:
+V=ones(4,1)
+
+V =
+
+     1
+     1
+     1
+     1
+
+V=ones(1,4)
+
+V =
+
+     1     1     1     1
+
+V=[1 1 1 1]
+
+V =
+
+     1     1     1     1
+
+ 
+v=[1;1;1;1]
+
+v =
+
+     1
+     1
+     1
+     1
+
+mat=[ 1 0; 1 1]
+
+mat =
+
+     1     0
+     1     1
+
+m1=ones(2,2)
+
+m1 =
+
+     1     1
+     1     1
+
+m2=eye(2,2)
+
+m2 =
+
+     1     0
+     0     1
+
+m3=zeros(2,2)
+
+m3 =
+
+     0     0
+     0     0
+
+m4=m2+m1
+
+m4 =
+
+     2     1
+     1     2
+
+%%%%%%%%%%%%%%%%%%%%%   MANIPULAÇÃO DE MATRIZES
+m4(1,1)
+
+ans =
+
+     2
+
+m4(1,2)=m4(1,2)+1
+
+m4 =
+
+     2     2
+     1     2
+
+m4(1,1:2)
+
+ans =
+
+     2     2
+
+m4(1:2,1)
+
+ans =
+
+     2
+     1
+
+m4(1:2,1:2)=3
+
+m4 =
+
+     3     3
+     3     3
+
+%%%%%%%%%%%%%%%   COMANDO DIAG
+help diag
+ <strong>diag</strong> Diagonal matrices and diagonals of a matrix.
+    <strong>diag</strong>(V,K) when V is a vector with N components is a square matrix
+    of order N+ABS(K) with the elements of V on the K-th diagonal. K = 0
+    is the main diagonal, K > 0 is above the main diagonal and K < 0
+    is below the main diagonal. 
+ 
+    <strong>diag</strong>(V) is the same as <strong>diag</strong>(V,0) and puts V on the main diagonal.
+ 
+    <strong>diag</strong>(X,K) when X is a matrix is a column vector formed from
+    the elements of the K-th diagonal of X.
+ 
+    <strong>diag</strong>(X) is the main diagonal of X. <strong>diag</strong>(<strong>diag</strong>(X)) is a diagonal matrix.
+ 
+    Example
+       m = 5;
+       diag(-m:m) + diag(ones(2*m,1),1) + diag(ones(2*m,1),-1)
+    produces a tridiagonal matrix of order 2*m+1.
+ 
+    See also <a href="matlab:help spdiags">spdiags</a>, <a href="matlab:help triu">triu</a>, <a href="matlab:help tril">tril</a>, <a href="matlab:help blkdiag">blkdiag</a>.
+
+    <a href="matlab:doc diag">Reference page for diag</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('diag')">Other functions named diag</a>
+
+v
+
+v =
+
+     1
+     1
+     1
+     1
+
+m=diag(v)
+
+m =
+
+     1     0     0     0
+     0     1     0     0
+     0     0     1     0
+     0     0     0     1
+
+v= [1 2 3 4]
+
+v =
+
+     1     2     3     4
+
+m=diag(v)
+
+m =
+
+     1     0     0     0
+     0     2     0     0
+     0     0     3     0
+     0     0     0     4
+
+m1=diag(v,1)
+
+m1 =
+
+     0     1     0     0     0
+     0     0     2     0     0
+     0     0     0     3     0
+     0     0     0     0     4
+     0     0     0     0     0
+
+m2=diag(v,-1)
+
+m2 =
+
+     0     0     0     0     0
+     1     0     0     0     0
+     0     2     0     0     0
+     0     0     3     0     0
+     0     0     0     4     0
+
+
+%%%%%%%%%%%%%  Note-se que o output do comando diag(v,1) é uma matriz cuja dimensão é numa unidade superior à do vector v.
+
+
+m3=m1+m2
+
+m3 =
+
+     0     1     0     0     0
+     1     0     2     0     0
+     0     2     0     3     0
+     0     0     3     0     4
+     0     0     0     4     0
+
+%%%%%%%%%%%%%%%%%  PRODUTO DE DUAS MATRIZES
+id=eye(5)
+
+id =
+
+     1     0     0     0     0
+     0     1     0     0     0
+     0     0     1     0     0
+     0     0     0     1     0
+     0     0     0     0     1
+m3*id
+
+ans =
+
+     0     1     0     0     0
+     1     0     2     0     0
+     0     2     0     3     0
+     0     0     3     0     4
+     0     0     0     4     0
+
+%% Multiplicação elemento a elemento
+
+2.*id
+
+ans =
+
+     2     0     0     0     0
+     0     2     0     0     0
+     0     0     2     0     0
+     0     0     0     2     0
+     0     0     0     0     2
+
+2.*m3
+
+ans =
+
+     0     2     0     0     0
+     2     0     4     0     0
+     0     4     0     6     0
+     0     0     6     0     8
+     0     0     0     8     0
+
+%%%%%%%%%%%%%% funções inv e det
+  inv(m)
+
+ans =
+
+   1.000000000000000                   0                   0                   0
+                   0   0.500000000000000                   0                   0
+                   0                   0   0.333333333333333                   0
+                   0                   0                   0   0.250000000000000
+
+det(m)
+
+ans =
+
+    24
+
+%%%%%%%% resolução de sistemas lineares
+m
+
+m =
+
+     1     0     0     0
+     0     2     0     0
+     0     0     3     0
+     0     0     0     4
+
+v
+
+v =
+
+     1     2     3     4
+
+ 
+m\ [1;1;1;1]
+
+ans =
+
+   1.000000000000000
+   0.500000000000000
+   0.333333333333333
+   0.250000000000000
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Definir Funções
+%%%%%%%%%%%%%  Exemplo
+
+fun1=inline('sin(x)^2')
+
+fun1 =
+
+     Inline function:
+     fun1(x) = sin(x)^2
+
+fun2=inline('cos(x)^2')
+
+fun2 =
+
+     Inline function:
+     fun2(x) = cos(x)^2
+
+fun1(0.5)+fun2(0.5)
+
+ans =
+
+     1
+
+%%%%%%%%%%%%%%%  funções de duas variáveis
+
+ fun=inline('sin(x)^2 +cos(y)^2','x','y')
+
+fun =
+
+     Inline function:
+     fun(x,y) = sin(x)^2 +cos(y)^2
+
+fun(0,0.5)
+
+ans =
+
+   0.770151152934070
+
+fun(0.5,0)
+
+ans =
+
+   1.229848847065930
+
+
+
+fun(0.5,0.5)
+
+ans =
+
+     1
+
+%%%%%%%%%%%%%%%%  Representaão de gráficos %%%
+%%%% a) Através do comando fplot
+fun=inline('exp(sin(x))','x')
+
+fun =
+
+     Inline function:
+     fun(x) = exp(sin(x))
+
+%%%%%%%%%%%   Definição do intervalo
+lims=[-pi,pi]
+
+lims =
+
+  -3.141592653589793   3.141592653589793
+
+
+fplot(@(x) exp(sin(x)),lims)
+fplot(@(x) fun(x),lims)
+
+%%%%%%%%%%%%%%%%%%%%%%%%  O gráfico é representado numa janela separada, que pode ser guardada, se necessário
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%  b) Através do comando Plot
+%%%% Primeiro é necessário definir o domínio, como uma lista de pontos
+x=linspace(-pi,pi,11)
+
+x =
+
+  Columns 1 through 4
+
+  -3.141592653589793  -2.513274122871834  -1.884955592153876  -1.256637061435917
+
+  Columns 5 through 8
+
+  -0.628318530717959                   0   0.628318530717959   1.256637061435917
+
+  Columns 9 through 11
+
+   1.884955592153876   2.513274122871834   3.141592653589793
+
+%%%%% Depois define-se a imagem do domínio, também como uma lista
+
+ 
+y=fun(x)
+
+y =
+
+  Columns 1 through 4
+
+   1.000000000000000   0.555556340339246   0.386332641030547   0.386332641030547
+
+  Columns 5 through 8
+
+   0.555556340339247   1.000000000000000   1.799997457304433   2.588442947332867
+
+  Columns 9 through 11
+
+   2.588442947332867   1.799997457304434   1.00000000000000
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Finalmente, o gráfico resulta do comando:
+
+plot(x,y)
+
