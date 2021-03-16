@@ -1,0 +1,105 @@
+%%%%%   GUIA DA AULA 3 DE MATEMÁTICA COMPUTACIONAL
+%%%%%  RESOLUÇÃO DE EQUAÇÕES NÃO LINEARES
+%%%%%%%%%   Utilização do comando fzero
+fzero('x^2-2',1)
+
+ans =
+
+    1.4142
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fzero('cos(x)-x',1)
+
+ans =
+
+    0.7391
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+fzero('sin(x)',3)
+
+ans =
+
+    3.1416
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Calcular os zeros da função definida no ficheiro f1
+%%%%%%%%%%%%%%%%%%%  aproximação inicial 0
+fzero('f1(x)',0)
+
+ans =
+
+    0.4242
+%%%%%%%%%%%%%%%%%%%  aproximação inicial -1
+
+fzero('f1(x)',-1)
+
+ans =
+
+   -1.8142
+%%%%%%%%%%%%%%%%%%%  aproximação inicial 2
+
+fzero('f1(x)',2)
+
+ans =
+
+    2.4086
+
+%%%%%%%%%%%%%%%%%%%%% imprimir gráfico
+fplot(@f1,[-3,3])
+
+%%%%%%%%%%%%%%%%%%%%%%   MÉTODO DA BISSECÇÃO  %%%%%
+%%%% O código que aplica o método da bissecção está 
+%%% escrito na função 'bissec'
+%%% Apliquemo-lo à função f1
+%%%%%%%%%%%%%%%%%%%%%   No intervalo [0,1]
+
+[x,err]=bissec('f1',0,1,0.001)
+
+x =
+
+    0.4248
+
+
+err =
+
+   9.7656e-04
+
+%%%%%%%%%%%%%%%%%  No intervalo [2,3]
+[x,err]=bissec('f1',2,3,0.001)
+
+x =
+
+    2.4092
+
+
+err =
+
+   9.7656e-04
+%%%%%%%%%%%%%%%%%%%%%%%%%  No intervalo [-2,1] *****
+
+[x,err]=bissec('f1',-2,1,0.001)
+f(a)*f(b) tem de ser negativo
+
+x =
+
+   -0.5000
+
+
+err =
+
+    1.5000
+
+%%%%%%%%%%%%%%%%%%%%%%   No intervalo [-2,-1]
+
+[x,err]=bissec('f1',-2,-1,0.001)
+
+x =
+
+   -1.8135
+
+
+err =
+
+   9.7656e-04
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Nota, em vez de 'f1', também se pode escrever @f1
