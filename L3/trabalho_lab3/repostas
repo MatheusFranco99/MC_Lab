@@ -114,8 +114,8 @@ ans =
 
 % observamos que os valores proprios calculados pela funcao ex2 estao em concordancia com os
 % valores calculados pela funcao eig considerando 10 algarismos significativos.
-% utilizamos uma tolerancia de 0,5 * 10^-9 tendo em conta que os valores proprios da matriz estao
-% entre 0 e 9, garantindo que os valores tem 10 algarismos significativos
+% utilizamos uma tolerancia de 0,5 * 10^-9 tendo em conta que o modulo dos valores proprios
+% da matriz estao entre 0 e 9, garantindo que os valores tem 10 algarismos significativos
 
 % exercicio 3 - ver o arquivo ex3.m
 
