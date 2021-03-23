@@ -4,7 +4,7 @@
 
 % Ver documento ex1.m
 
-% exercicio 2
+% exercicio 2 (execucao da funcao no ficheiro 'execucao_ex2')
 
 % alinea a
 
@@ -50,7 +50,9 @@
 % a - ficheiro ex3.pdf
 % b - ficheiro ex3.pdf
 % c - ficheiro ex3.m
-% d - O número de iterações e inferior para as tres funcoes g1, g2 e g3
+% d - execucao da funcao no ficheiro 'execucao_ex3'
+
+% O número de iterações e inferior para as tres funcoes g1, g2 e g3
 % como na tabela abaixo, respetivamente
        %                                             g1     g2     g3
     %   numero de iteracoes do metodo do ponto fixo: 31     100    12
