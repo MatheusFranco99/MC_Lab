@@ -94,29 +94,20 @@ it =
 
 % EXERCICIO 3 E
 
-% O metodo da Secante teve mais iteradas que os demais metodos (6 vs 5) e portanto
+% O metodo da Secante teve mais iteradas que os outros metodos (6 vs 5) e portanto
 % teve pior desempenho.
 
 % Os metodos de Newton e quasiNewton tiveram o mesmo numero de iteradas
-% (para delta <= 10^-5) porem o metodo quasiNewton teve menor tempo de execucao
-% o que nos leva a concluir que, neste caso, foi mais eficiente.
-
-t1 = cputime;[x,dif,it] = QuasiNewton(0.04,@(x)funcaoDoGas(x),1e-5,1e-12);t2 = cputime; t = t2-t1
-
-t =
-
-   0.009999999999991
-
-t1 = cputime; [x,dif,it] = Newton(0.04,@(x)funcaoDoGas(x), @(x)devFuncaoDoGas(x),1e-12); t2 = cputime; t2-t1
-
-ans =
-
-   0.010000000000048
+% (para delta <= 10^-5). O metodo de Newton, no entanto, teve um erro menor
+% que o metodo quasiNewton (6.938893903907228e-18 vs
+% 3.528635716953943e-13), o que sugere que o metodo de Newton seja mais
+% eficiente.
 
 % Como os dois metodos tiveram o mesmo numero de iteradas para valores de
 % delta muito proximos de zero (<= 10^-5), a ordem de convergencia e
 % semelhante. Contudo, ao escolhermos valores de delta mais afastados de 0,
-% e.g. 10^-4, o numero de iteracoes do metodo quasiNewton.
+% e.g. 10^-4, o numero de iteracoes do metodo quasiNewton sao superiores que o
+% do metodo de Newton. 
 
 [x,dif,it] = QuasiNewton(0.04,@(x)funcaoDoGas(x),1e-4,1e-12)
 
@@ -134,7 +125,73 @@ it =
 
      6
      
-% O metodo de Newton, no entanto, teve um erro menor
-% que o metodo quasiNewton (6.938893903907228e-18 vs
-% 3.528635716953943e-13).
+% Alterando o x0 para 0.01 e variando o delta entre 10^-2, 10^-4 e 10^-5 
 
+[x,dif,it] = Newton(0.01,@(x)funcaoDoGas(x), @(x)devFuncaoDoGas(x),1e-12)
+
+x =
+
+   0.042700000000000
+
+
+dif =
+
+     0
+
+
+it =
+
+    10
+
+[x,dif,it] = QuasiNewton(0.01,@(x)funcaoDoGas(x),1e-2,1e-12)
+
+x =
+
+   0.042700000000146
+
+
+dif =
+
+     4.919606388931186e-13
+
+
+it =
+
+    29
+
+[x,dif,it] = QuasiNewton(0.01,@(x)funcaoDoGas(x),1e-4,1e-12)
+
+x =
+
+   0.042700000000000
+
+
+dif =
+
+     3.242545121295848e-14
+
+
+it =
+
+    11
+ 
+[x,dif,it] = QuasiNewton(0.01,@(x)funcaoDoGas(x),1e-5,1e-12)
+
+x =
+
+   0.042700000000000
+
+
+dif =
+
+     2.203098814490545e-13
+
+
+it =
+
+    10
+    
+% Verificamos que o que faz variar a ordem de convergencia do metodo
+% quasiNewton e o valor de delta e tal como visto na pergunta 2A para
+% valores de delta suficientemente proximos de zero este tem convergencia supralinear
+% semelhante ao metodo de Newton, dando o mesmo numero de iteradas. 
