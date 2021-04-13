@@ -61,7 +61,7 @@
     1.0000    1.0000    1.0003    0.9930    1.0817    0.4440    3.3830   -5.6936   13.4652  -14.0754   11.8809   -2.2489   -0.2175    2.2952    0.6920
 
 
-% Exercicio 2 D - ver ex
+% Exercicio 2 D - ver ex2d.m
 
 % Os erros/pertubacoes na matrix Hn e Bn sao bastante pequenos, da ordem de
 % 10^-16 (ordem de grandeza da unidade de arredondamento). No entanto, a partir
