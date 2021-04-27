@@ -2,7 +2,11 @@
 
 % Exercicio 1 - ver SOR.m
 
-% Exercicio 2 - ver ex2.m, A.m
+% Exercicio 2 - ver ex2.m, A.m, ex2_2.m
+
+>> ex2(1E-6)
+
+ans =
 
 omega    iteracoes
     _____    _________
@@ -122,8 +126,11 @@ A(20) * x =
    0.999999738421281
    1.000000130789360
    1.000000000000000
+
    
-   
+>> ex2_2(1E-6)
+
+ans =
    
    omega    iteracoes
     _____    _________
@@ -195,7 +202,9 @@ ans =
 
 % Exercicio 5 - ver ex5.m, ex5_extended.m
 
+>> ex5(A(20))
 
+ans =
     omegas    raio espectral de Cw
     ______    ____________________
 
@@ -222,7 +231,11 @@ ans =
      
      % Tal como na pergunta 2, vamos verificar quais os valores ótimos de
      % omega no intervalo de 1.65 a 1.8 com incremento de 0.01.
-     
+   
+>> ex5_extended(A(20),1.65,1.8,0.01)
+
+ans =
+
     
     omegas    raio espectral de Cw
     ______    ____________________
