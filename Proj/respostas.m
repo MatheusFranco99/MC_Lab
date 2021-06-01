@@ -110,9 +110,96 @@ V =
    1.000000000000000   1.000000000000000   1.000000000000000   1.000000000000000
    
    
-% x(t) = 20 x - 54 x^2 + 36 x^3
-% y(t) = 8.5 x - 9 x^2 + 4.5 x^3
+% x(t) = (19.999999999999989) t + (-53.999999999999957) t^2 + (35.999999999999972) t^3
+% y(t) = (8.499999999999998) t + (-8.999999999999993) t^2 + (4.499999999999995) t^3
 
 % Como temos 4 pontos da funcao r(t), i.e., 4 nos de interpolacao, o grau do polinomio
 % interpolador sera 3, i.e., n = 3.
 
+
+% Exercicio 5 - B
+
+[coef_x,coef_y,B] = ex5b()
+
+coef_x =
+
+                   0
+   6.666666666666664
+  -4.666666666666666
+   2.000000000000000
+
+
+coef_y =
+
+                   0
+   2.833333333333332
+   2.666666666666667
+   4.000000000000000
+
+
+B =
+
+   1.000000000000000                   0                   0                   0
+   0.296296296296296   0.444444444444445   0.222222222222222   0.037037037037037
+   0.037037037037037   0.222222222222222   0.444444444444444   0.296296296296296
+                   0                   0                   0   1.000000000000000
+                
+% B_0,3 = (1-t)^3
+% B_1,3 = 3t(1-t)^2
+% B_2,3 = 3t^2(1-t)
+% B_3,3 = t^3
+
+% x(t) = 6.666666666666664*3*t(1-t)^2 -4.666666666666666*3*t^2(1-t) + 2.000000000000000*t^3 
+%      = 35.99999999999999 t^3 - 53.99999999999998 t^2 + 19.99999999999999t
+
+% y(t) = 2.833333333333332*3*t(1-t)^2 + 2.666666666666667*3*t^2(1-t) + 4.000000000000000*t^3
+%      = 4.50000000000000 t^3 - 8.99999999999999 t^2 + 8.499999999999996 t
+
+% Como temos 4 pontos da funcao r(t), i.e., 4 nos de interpolacao, o grau do polinomio
+% interpolador sera 3, i.e., n = 3.
+
+% Tendo em conta que, dada uma tabela, o polinomio interpolador e unico esperamos
+% teoricamente que o polinomio calculado pela base canonica e de Bernstein
+% seja o mesmo. Uma vez que temos apenas 4 nos interpoladores, as matrizes
+% para achar os coeficientes do polinomio tem uma pequena dimensão (4x4) e
+% como visto anteriormente vao ter um numero de condicao baixo esperando-se
+% que o sistema seja bem condicionado. Ao calcular os polinomios apesar de
+% semelhantes ocorrem algumas diferencas o que se deve erros computacionais
+% nomeadamente de arredondamento que se acentuariam se as matrizes tivessem
+% uma dimensao maior.
+
+
+% Diferenca entre Vandermonde e Bernstein
+
+% Termo           Coeficiente
+            x(t)
+
+x^0               0
+x^1               -1.000000000000000e-14
+x^2               2.131628207280301e-14
+x^3               -2.131628207280301e-14
+
+            y(t)
+
+y^0               0
+y^1               1.776356839400250e-15
+y^2               -3.552713678800501e-15
+y^3               -5.329070518200751e-15
+
+
+% Algumas das diferencas foram calculadas a mao visto que o MatLab
+% retornava 0 devido ao erro de arredondamento do mesmo.
+
+% Tendo em conta que a unidade de arredondamento do MatLab e da ordem de
+% 10^-16 e que as diferencas entre os coeficientes dos dois polinomios
+% calculados sao da ordem de 10^-14/10^-15 (sendo os polinomios muito semelhantes),
+% concluimos que as diferencas entre os polinomios sao 
+% efetivamente devido a erros computacionais do MatLab,
+% caso contrario obteriamos o mesmo e o unico polinomio interpolador da
+% funcao r(t) nestes nos. 
+% A ordem destas diferencas nao e 10^-16 porque, apesar das matrizes terem
+% um numero de condicao baixo, ainda assim ha uma pequena perda de precisao associada a
+% resolucao do sistema.
+
+
+% Exercicio 5 - C (ver ficheiros 5cB.pdf, 5cV.pdf)
