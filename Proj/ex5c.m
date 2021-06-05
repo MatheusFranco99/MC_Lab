@@ -9,15 +9,13 @@ By = @(t) 4.50000000000000.*t.^3 - 8.99999999999999.*t.^2 + 8.499999999999996.*t
 
 t = 0:0.01:1;
 
-VxIt = Vx(t);
-VyIt = Vy(t);
+%VxIt = Vx(t);
+%VyIt = Vy(t);
 
-VxIt = Vx(t);
-VyIt = Vy(t);
+BxIt = Bx(t);
+ByIt = By(t);
 
-pontos = [[0,0],[2,2],[0,2],[3,4]];
-
-plot(VxIt,VyIt);
+plot(BxIt,ByIt);
 hold on;
 scatter([0,2,0,2],[0,2,3,4]);
 
